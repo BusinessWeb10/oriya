@@ -1,0 +1,1475 @@
+:root{
+    --black:#191816;
+    --cream:#f4f0e9;
+    --paper:#fbfaf7;
+    --stone:#d8cec2;
+    --sand:#c8b8a6;
+    --white:#ffffff;
+    --muted:#777069;
+    --page:clamp(24px,6vw,100px);
+}
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--cream);
+    color:var(--black);
+    font-family:"Assistant",Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+img,
+video{
+    display:block;
+    width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+figure{
+    margin:0;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100px;
+
+    padding:0 var(--page);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    direction:ltr;
+
+    z-index:50;
+
+    color:white;
+
+    border-bottom:1px solid rgba(255,255,255,.26);
+}
+
+.logo{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.logo-main{
+    font-family:"Cormorant Garamond",serif;
+    font-size:39px;
+    line-height:1;
+    font-weight:500;
+    letter-spacing:7px;
+}
+
+.logo-small{
+    margin-top:9px;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:2px;
+}
+
+nav{
+    display:flex;
+    gap:42px;
+    direction:rtl;
+}
+
+nav a{
+    font-size:17px;
+    font-weight:500;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+
+    width:100%;
+    height:100vh;
+    min-height:720px;
+
+    overflow:hidden;
+
+    background:#171613;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center 18%;
+
+    filter:none;
+    opacity:1;
+
+    transform:none;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,7,6,.48) 0%,
+            rgba(8,7,6,.28) 32%,
+            rgba(8,7,6,.08) 62%,
+            rgba(8,7,6,.02) 100%
+        );
+}
+
+
+/* הכיתוב הוזז למטה והרחק מהפנים */
+
+.hero-content{
+    position:absolute;
+
+    left:var(--page);
+    right:auto;
+    bottom:3%;
+
+    z-index:5;
+
+    max-width:min(700px,48vw);
+
+    direction:ltr;
+    text-align:left;
+
+    color:white;
+}
+
+.hero-small{
+    max-width:520px;
+
+    font-size:13px;
+    font-weight:500;
+
+    line-height:1.6;
+
+    letter-spacing:3.6px;
+}
+
+.hero h1{
+    margin-top:20px;
+
+    max-width:700px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(60px,6.7vw,108px);
+
+    font-weight:400;
+
+    line-height:.82;
+
+    letter-spacing:-4px;
+}
+
+.hero h1 span{
+    display:block;
+
+    margin-left:30px;
+
+    font-style:italic;
+}
+
+.hero-link{
+    display:inline-flex;
+    align-items:center;
+
+    gap:30px;
+
+    margin-top:38px;
+
+    padding-bottom:11px;
+
+    border-bottom:1px solid rgba(255,255,255,.8);
+
+    font-size:15px;
+    font-weight:500;
+
+    letter-spacing:1px;
+}
+
+.hero-side-text{
+    position:absolute;
+
+    right:18px;
+    bottom:30px;
+
+    writing-mode:vertical-rl;
+
+    color:white;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+
+/* =========================
+   SECTION LABEL
+========================= */
+
+.section-label{
+    margin-bottom:28px;
+
+    direction:ltr;
+
+    font-size:13px;
+    font-weight:500;
+
+    letter-spacing:3px;
+}
+
+
+/* =========================
+   ABOUT ORIYA
+========================= */
+
+.about{
+    max-width:1450px;
+
+    margin:auto;
+
+    padding:140px var(--page);
+
+    display:grid;
+
+    grid-template-columns:.9fr 1.1fr;
+
+    gap:8vw;
+
+    align-items:center;
+
+    direction:rtl;
+}
+
+.about-text{
+    text-align:right;
+
+    max-width:630px;
+
+    justify-self:end;
+}
+
+
+/* כותרת גדולה ובולטת יותר */
+
+.about h2{
+    margin-bottom:34px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(64px,6.2vw,96px);
+
+    font-weight:600;
+
+    line-height:.95;
+
+    letter-spacing:-.8px;
+}
+
+.about h2 span{
+    font-family:Arial,sans-serif;
+
+    font-size:.43em;
+}
+
+
+/* הפסקאות גדולות ובולטות יותר */
+
+.about-text > p:not(.section-label){
+    max-width:620px;
+
+    margin-bottom:22px;
+
+    font-size:22px;
+
+    font-weight:500;
+
+    line-height:1.9;
+
+    color:#24211e;
+}
+
+.about-text > p:not(.section-label):first-of-type{
+    font-size:23px;
+
+    font-weight:500;
+}
+
+.about-text strong{
+    font-weight:700;
+
+    color:var(--black);
+}
+
+
+/* =========================
+   ABOUT IMAGE
+========================= */
+
+.about-image-wrap{
+    position:relative;
+
+    height:760px;
+}
+
+.about-image{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.09);
+}
+
+
+/* הריבוע השחור יושב על הקצה */
+
+.about-card{
+    position:absolute;
+
+    left:0;
+    bottom:48px;
+
+    transform:translateX(-50%);
+
+    width:300px;
+
+    padding:38px 35px;
+
+    background:var(--black);
+
+    color:white;
+
+    z-index:4;
+
+    direction:ltr;
+    text-align:left;
+}
+
+.about-card-logo{
+    display:block;
+
+    margin-bottom:15px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:41px;
+
+    line-height:1;
+
+    letter-spacing:7px;
+}
+
+.about-card-small{
+    font-size:11px;
+
+    line-height:1.8;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   SELECTED WORK
+========================= */
+
+.selected-work{
+    padding:140px var(--page);
+
+    background:var(--black);
+
+    color:#f2ede6;
+
+    display:grid;
+
+    grid-template-columns:1.5fr .6fr;
+
+    gap:90px;
+
+    align-items:end;
+
+    direction:ltr;
+}
+
+.light{
+    color:#aaa49d;
+}
+
+.selected-work h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(80px,10vw,160px);
+
+    font-weight:400;
+
+    line-height:.75;
+
+    letter-spacing:-5px;
+}
+
+.selected-work h2 span{
+    display:block;
+
+    font-style:italic;
+}
+
+.selected-description{
+    direction:rtl;
+
+    text-align:right;
+
+    color:#cac4bc;
+
+    font-size:18px;
+
+    font-weight:300;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.portfolio{
+    padding:120px var(--page);
+}
+
+.category-header{
+    display:grid;
+
+    grid-template-columns:85px 1fr;
+
+    gap:30px;
+
+    padding-top:27px;
+
+    margin-bottom:60px;
+
+    direction:ltr;
+
+    border-top:1px solid rgba(25,24,22,.16);
+}
+
+.category-number{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:30px;
+
+    font-style:italic;
+}
+
+.category-header h3{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(52px,6.5vw,98px);
+
+    font-weight:400;
+
+    line-height:.9;
+}
+
+.category-header p{
+    margin-top:14px;
+
+    direction:rtl;
+
+    text-align:left;
+
+    font-size:17px;
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.event-item,
+.business-video,
+.hotel-card,
+.hotel-video,
+.ugc-video{
+    position:relative;
+
+    overflow:hidden;
+
+    background:#ddd6cd;
+}
+
+.event-item img,
+.event-item video,
+.business-video video,
+.hotel-card img,
+.hotel-video video,
+.ugc-video video{
+    transition:
+        transform .55s ease,
+        filter .45s ease;
+}
+
+.event-item:hover img,
+.event-item:hover video,
+.business-video:hover video,
+.hotel-card:hover img,
+.hotel-video:hover video,
+.ugc-video:hover video{
+    transform:scale(1.015);
+
+    filter:brightness(.97);
+}
+
+
+/* =========================
+   01 EVENTS & MOMENTS
+========================= */
+
+.events{
+    background:var(--paper);
+}
+
+.events-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:18px;
+
+    align-items:start;
+}
+
+.event-contain{
+    height:620px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#f0ece6;
+}
+
+.event-contain img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:center;
+}
+
+.event-full{
+    height:620px;
+}
+
+.event-full img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center;
+}
+
+.event-video{
+    height:620px;
+
+    width:100%;
+
+    max-width:430px;
+
+    justify-self:center;
+
+    background:#161513;
+}
+
+.event-video video{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+/* =========================
+   02 BRANDS & BUSINESS
+========================= */
+
+.business{
+    background:var(--stone);
+}
+
+.business-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:18px;
+}
+
+.business-video{
+    height:620px;
+
+    background:#181715;
+}
+
+.business-video video{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.video-title{
+    position:absolute;
+
+    top:18px;
+    left:18px;
+
+    z-index:2;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:2.5px;
+}
+
+
+/* =========================
+   03 HOTELS & TRAVEL
+========================= */
+
+.hotels{
+    background:#f8f6f2;
+}
+
+.hotel-photo-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:16px;
+}
+
+
+/* כל שלוש התמונות באותו גודל */
+
+.hotel-card,
+.hotel-full-frame{
+    height:470px;
+
+    overflow:hidden;
+
+    background:#f8f6f2;
+}
+
+.hotel-card img,
+.hotel-full-frame img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
+}
+
+.hotel-video-grid{
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:repeat(5,minmax(0,1fr));
+
+    gap:14px;
+}
+
+.hotel-video{
+    height:520px;
+
+    background:#171613;
+}
+
+.hotel-video video{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+
+/* =========================
+   04 UGC & CREATIVE CONTENT
+========================= */
+
+.ugc{
+    background:var(--sand);
+}
+
+
+/*
+   סרטון | מלבן שחור | סרטון
+*/
+
+.ugc-editorial{
+    max-width:1500px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,.88fr)
+        minmax(0,1.28fr)
+        minmax(0,.88fr);
+
+    gap:20px;
+
+    align-items:center;
+}
+
+.ugc-video{
+    height:610px;
+
+    overflow:hidden;
+
+    background:#171613;
+}
+
+.ugc-video video{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
+}
+
+
+/* המלבן השחור */
+
+.ugc-text{
+    min-height:430px;
+
+    padding:60px 70px;
+
+    background:var(--black);
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    direction:ltr;
+
+    text-align:left;
+}
+
+.ugc-small{
+    margin-bottom:22px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:4px;
+}
+
+.ugc-text h4{
+    margin:0;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(64px,5vw,100px);
+
+    font-weight:400;
+
+    line-height:.78;
+}
+
+.ugc-text h4 span{
+    display:block;
+
+    margin-left:35px;
+
+    font-style:italic;
+}
+
+.ugc-description{
+    align-self:flex-end;
+
+    max-width:330px;
+
+    margin-top:35px;
+
+    direction:rtl;
+
+    text-align:right;
+
+    color:#ded8d1;
+
+    font-size:17px;
+
+    font-weight:300;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    min-height:720px;
+
+    padding:140px var(--page);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:var(--cream);
+}
+
+.contact h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:clamp(52px,6vw,90px);
+
+    line-height:1.05;
+
+    font-weight:400;
+}
+
+.contact h2 span{
+    font-style:italic;
+}
+
+.contact-description{
+    margin-top:30px;
+
+    font-size:19px;
+
+    font-weight:300;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-button{
+    margin-top:45px;
+
+    min-width:310px;
+
+    padding:18px 24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    background:var(--black);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    transition:.3s;
+}
+
+.whatsapp-button:hover{
+    transform:translateY(-4px);
+
+    background:#2d2a27;
+}
+
+.whatsapp-symbol{
+    width:25px;
+    height:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid rgba(255,255,255,.75);
+
+    border-radius:50%;
+
+    font-size:10px;
+}
+
+.button-arrow{
+    margin-right:auto;
+
+    font-size:21px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:50px var(--page);
+
+    background:var(--black);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    direction:ltr;
+}
+
+.footer-logo{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.footer-logo > span{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:32px;
+
+    letter-spacing:6px;
+}
+
+.footer-logo small{
+    margin-top:8px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+.footer-links{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(32px);
+
+    transition:
+        opacity .85s ease,
+        transform .85s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:1100px){
+
+    .about{
+        grid-template-columns:1fr;
+
+        gap:70px;
+    }
+
+    .about-image-wrap{
+        grid-row:1;
+
+        width:calc(100% - 70px);
+
+        margin-left:auto;
+
+        height:700px;
+    }
+
+    .about-text{
+        grid-row:2;
+
+        justify-self:stretch;
+    }
+
+    .about-card{
+        transform:translateX(-25%);
+    }
+
+    .selected-work{
+        grid-template-columns:1fr;
+    }
+
+    .events-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .business-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hotel-photo-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .hotel-video-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .hero-content{
+        max-width:60vw;
+    }
+
+    .ugc-editorial{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .ugc-text{
+        grid-column:1/-1;
+
+        grid-row:1;
+
+        min-height:380px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:700px){
+
+    .header{
+        height:80px;
+
+        padding:0 20px;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .logo-main{
+        font-size:29px;
+    }
+
+    .logo-small{
+        font-size:8px;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        min-height:680px;
+    }
+
+    .hero-image{
+        object-position:54% 15%;
+    }
+
+    .hero-overlay{
+        background:
+            linear-gradient(
+                0deg,
+                rgba(8,7,6,.52) 0%,
+                rgba(8,7,6,.12) 60%,
+                rgba(8,7,6,.04) 100%
+            );
+    }
+
+    .hero-content{
+        left:22px;
+        right:22px;
+
+        bottom:5%;
+
+        max-width:none;
+    }
+
+    .hero-small{
+        max-width:300px;
+
+        font-size:9px;
+
+        line-height:1.6;
+
+        letter-spacing:2.3px;
+    }
+
+    .hero h1{
+        max-width:330px;
+
+        font-size:clamp(52px,15vw,70px);
+
+        line-height:.84;
+
+        letter-spacing:-2px;
+    }
+
+    .hero h1 span{
+        margin-left:14px;
+    }
+
+    .hero-side-text{
+        display:none;
+    }
+
+
+    /* ABOUT */
+
+    .about{
+        padding:90px 22px;
+    }
+
+    .about-image-wrap{
+        width:calc(100% - 25px);
+
+        height:570px;
+
+        margin-left:auto;
+    }
+
+    .about-card{
+        left:0;
+
+        bottom:22px;
+
+        transform:translateX(-12%);
+
+        width:205px;
+
+        padding:25px;
+    }
+
+    .about-card-logo{
+        font-size:30px;
+    }
+
+    .about h2{
+        font-size:58px;
+
+        font-weight:600;
+    }
+
+    .about-text > p:not(.section-label){
+        font-size:19px;
+
+        font-weight:500;
+
+        line-height:1.85;
+    }
+
+    .about-text > p:not(.section-label):first-of-type{
+        font-size:20px;
+    }
+
+
+    /* SELECTED WORK */
+
+    .selected-work{
+        padding:90px 22px;
+    }
+
+    .selected-work h2{
+        font-size:69px;
+    }
+
+
+    /* PORTFOLIO */
+
+    .portfolio{
+        padding:85px 20px;
+    }
+
+    .category-header{
+        grid-template-columns:48px 1fr;
+
+        gap:16px;
+
+        margin-bottom:40px;
+    }
+
+    .category-header h3{
+        font-size:43px;
+    }
+
+    .category-header p{
+        font-size:15px;
+    }
+
+
+    /* EVENTS */
+
+    .events-grid{
+        grid-template-columns:1fr;
+    }
+
+    .event-contain{
+        height:auto;
+    }
+
+    .event-contain img{
+        width:100%;
+
+        height:auto;
+
+        object-fit:contain;
+    }
+
+    .event-full{
+        height:auto;
+    }
+
+    .event-full img{
+        height:auto;
+    }
+
+    .event-video{
+        width:100%;
+
+        max-width:none;
+
+        height:600px;
+    }
+
+
+    /* BUSINESS */
+
+    .business-grid{
+        grid-template-columns:1fr;
+    }
+
+    .business-video{
+        height:580px;
+    }
+
+
+    /* HOTELS */
+
+    .hotel-photo-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hotel-card,
+    .hotel-full-frame{
+        height:500px;
+    }
+
+    .hotel-video-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hotel-video{
+        height:500px;
+    }
+
+
+    /* UGC */
+
+    .ugc-editorial{
+        grid-template-columns:1fr;
+
+        gap:14px;
+    }
+
+    .ugc-text{
+        grid-column:auto;
+
+        grid-row:1;
+
+        min-height:360px;
+
+        padding:45px 30px;
+    }
+
+    .ugc-text h4{
+        font-size:58px;
+    }
+
+    .ugc-video{
+        height:580px;
+    }
+
+
+    /* CONTACT */
+
+    .contact{
+        min-height:650px;
+
+        padding:100px 22px;
+    }
+
+    .contact h2{
+        font-size:46px;
+    }
+
+    .contact-description{
+        font-size:17px;
+    }
+
+    .whatsapp-button{
+        width:100%;
+
+        max-width:360px;
+
+        min-width:0;
+    }
+
+
+    /* FOOTER */
+
+    footer{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:30px;
+
+        padding:45px 22px;
+    }
+/* ===== FIX ABOUT TITLE ===== */
+
+.about h2.about-title{
+    display:inline-flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    gap:10px !important;
+
+    width:auto !important;
+
+    margin-bottom:34px !important;
+
+    font-family:"Cormorant Garamond",serif !important;
+    font-size:62px !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+
+    white-space:nowrap !important;
+    direction:rtl !important;
+}
+/* ===== FIX ABOUT TITLE ===== */
+
+.about h2.about-title{
+    display:inline-flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    gap:10px !important;
+
+    width:auto !important;
+
+    margin-bottom:34px !important;
+
+    font-family:"Cormorant Garamond",serif !important;
+    font-size:62px !important;
+    font-weight:600 !important;
+    line-height:1 !important;
+
+    white-space:nowrap !important;
+    direction:rtl !important;
+}
+
+.about h2.about-title .about-heart{
+    display:inline-flex !important;
+
+    align-items:center !important;
+    justify-content:center !important;
+
+    font-family:Arial,sans-serif !important;
+    font-size:62px !important;
+
+    line-height:1 !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    vertical-align:middle !important;
+
+    transform:none !important;
+}
+
+}
