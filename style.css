@@ -9,6 +9,14 @@
     --page:clamp(24px,6vw,100px);
 }
 
+
+/* ששת סרטוני המלונות נשארים בשורה אחת בכל מסך שאינו נייד */
+@media (min-width:701px){
+    .hotels .hotel-video-grid{
+        grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    }
+}
+
 /* =========================
    RESET
 ========================= */
