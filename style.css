@@ -1119,6 +1119,10 @@ footer{
 
 @media (max-width:700px){
 
+    :root{
+        --page:18px;
+    }
+
     .header{
         height:80px;
 
@@ -1141,11 +1145,12 @@ footer{
     /* HERO */
 
     .hero{
-        min-height:680px;
+        height:100svh;
+        min-height:640px;
     }
 
     .hero-image{
-        object-position:54% 15%;
+        object-position:54% 18%;
     }
 
     .hero-overlay{
@@ -1159,8 +1164,8 @@ footer{
     }
 
     .hero-content{
-        left:22px;
-        right:22px;
+        left:20px;
+        right:20px;
 
         bottom:5%;
 
@@ -1178,7 +1183,7 @@ footer{
     }
 
     .hero h1{
-        max-width:330px;
+        max-width:360px;
 
         font-size:clamp(52px,15vw,70px);
 
@@ -1199,15 +1204,14 @@ footer{
     /* ABOUT */
 
     .about{
-        padding:90px 22px;
+        padding:80px var(--page);
+        gap:55px;
     }
 
     .about-image-wrap{
-        width:calc(100% - 25px);
-
-        height:570px;
-
-        margin-left:auto;
+        width:calc(100% - 20px);
+        height:520px;
+        margin:0 0 0 auto;
     }
 
     .about-card{
@@ -1227,7 +1231,7 @@ footer{
     }
 
     .about h2{
-        font-size:58px;
+        font-size:52px;
 
         font-weight:600;
     }
@@ -1248,18 +1252,19 @@ footer{
     /* SELECTED WORK */
 
     .selected-work{
-        padding:90px 22px;
+        padding:80px var(--page);
+        gap:36px;
     }
 
     .selected-work h2{
-        font-size:69px;
+        font-size:64px;
     }
 
 
     /* PORTFOLIO */
 
     .portfolio{
-        padding:85px 20px;
+        padding:72px var(--page);
     }
 
     .category-header{
@@ -1271,7 +1276,7 @@ footer{
     }
 
     .category-header h3{
-        font-size:43px;
+        font-size:clamp(37px,11vw,46px);
     }
 
     .category-header p{
@@ -1282,66 +1287,67 @@ footer{
     /* EVENTS */
 
     .events-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
     }
 
     .event-contain{
-        height:auto;
+        height:280px;
     }
 
     .event-contain img{
-        width:100%;
-
-        height:auto;
-
+        height:100%;
         object-fit:contain;
     }
 
     .event-full{
-        height:auto;
+        height:280px;
     }
 
     .event-full img{
-        height:auto;
+        height:100%;
+        object-fit:cover;
     }
 
     .event-video{
         width:100%;
-
         max-width:none;
-
-        height:600px;
+        height:360px;
     }
 
 
     /* BUSINESS */
 
     .business-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
     }
 
     .business-video{
-        height:580px;
+        height:360px;
     }
 
 
     /* HOTELS */
 
     .hotel-photo-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
     }
 
     .hotel-card,
     .hotel-full-frame{
-        height:500px;
+        height:260px;
     }
 
     .hotel-video-grid{
         grid-template-columns:1fr 1fr;
+        gap:10px;
+        margin-top:24px;
     }
 
     .hotel-video{
-        height:500px;
+        height:350px;
     }
 
 
@@ -1368,7 +1374,7 @@ footer{
     }
 
     .ugc-video{
-        height:580px;
+        height:520px;
     }
 
 
@@ -1376,8 +1382,7 @@ footer{
 
     .contact{
         min-height:650px;
-
-        padding:100px 22px;
+        padding:90px var(--page);
     }
 
     .contact h2{
@@ -1406,7 +1411,7 @@ footer{
 
         gap:30px;
 
-        padding:45px 22px;
+        padding:45px var(--page);
     }
 /* ===== FIX ABOUT TITLE ===== */
 
@@ -1423,29 +1428,7 @@ footer{
     margin-bottom:34px !important;
 
     font-family:"Cormorant Garamond",serif !important;
-    font-size:62px !important;
-    font-weight:600 !important;
-    line-height:1 !important;
-
-    white-space:nowrap !important;
-    direction:rtl !important;
-}
-/* ===== FIX ABOUT TITLE ===== */
-
-.about h2.about-title{
-    display:inline-flex !important;
-    flex-direction:row !important;
-    align-items:center !important;
-    justify-content:flex-start !important;
-
-    gap:10px !important;
-
-    width:auto !important;
-
-    margin-bottom:34px !important;
-
-    font-family:"Cormorant Garamond",serif !important;
-    font-size:62px !important;
+    font-size:52px !important;
     font-weight:600 !important;
     line-height:1 !important;
 
@@ -1460,7 +1443,7 @@ footer{
     justify-content:center !important;
 
     font-family:Arial,sans-serif !important;
-    font-size:62px !important;
+    font-size:52px !important;
 
     line-height:1 !important;
 
