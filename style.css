@@ -722,7 +722,7 @@ nav a{
 
     display:grid;
 
-    grid-template-columns:repeat(5,minmax(0,1fr));
+    grid-template-columns:repeat(6,minmax(0,1fr));
 
     gap:14px;
 }
@@ -1289,30 +1289,27 @@ footer{
     .events-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
         gap:10px;
+        align-items:stretch;
     }
 
-    .event-contain{
-        height:280px;
-    }
-
-    .event-contain img{
-        height:100%;
-        object-fit:contain;
-    }
-
-    .event-full{
-        height:280px;
-    }
-
-    .event-full img{
-        height:100%;
-        object-fit:cover;
-    }
-
+    .event-item,
+    .event-contain,
+    .event-full,
     .event-video{
         width:100%;
         max-width:none;
-        height:360px;
+        height:330px;
+        background:#171613;
+    }
+
+    .event-item img,
+    .event-contain img,
+    .event-full img,
+    .event-item video{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:center;
     }
 
 
@@ -1333,34 +1330,47 @@ footer{
     .hotel-photo-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
         gap:10px;
+        align-items:stretch;
     }
 
     .hotel-card,
     .hotel-full-frame{
         height:260px;
+        background:#171613;
+    }
+
+    .hotel-photo-grid > :last-child:nth-child(odd){
+        grid-column:1 / -1;
+        height:300px;
     }
 
     .hotel-video-grid{
         grid-template-columns:1fr 1fr;
         gap:10px;
         margin-top:24px;
+        align-items:stretch;
     }
 
     .hotel-video{
         height:350px;
     }
 
+    .hotel-video-grid > :last-child:nth-child(odd){
+        grid-column:1 / -1;
+        height:360px;
+    }
+
 
     /* UGC */
 
     .ugc-editorial{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
 
-        gap:14px;
+        gap:10px;
     }
 
     .ugc-text{
-        grid-column:auto;
+        grid-column:1 / -1;
 
         grid-row:1;
 
@@ -1374,7 +1384,7 @@ footer{
     }
 
     .ugc-video{
-        height:520px;
+        height:360px;
     }
 
 
