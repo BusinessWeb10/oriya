@@ -1889,4 +1889,15 @@ footer{
         object-fit:cover !important;
         object-position:center !important;
     }
+    /* תמונת מוצרי השיער + הסרטון שלה
+   אחד ליד השני בנייד בלבד */
+@media (max-width: 700px) {
+
+    .ugc-grid > :nth-child(2),
+    .ugc-grid > :nth-child(3) {
+        grid-column: span 1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}
 }
