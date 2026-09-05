@@ -1477,61 +1477,63 @@ footer{
 
 /* =====================================================
    FINAL LAYOUT — BUSINESS + UGC
-   Updated 2026-09-05
+   Clean responsive version
 ===================================================== */
 
 /* ---------- BRANDS & BUSINESS: 7 videos ---------- */
 .business-grid{
-    display:grid;
-    grid-template-columns:repeat(12,minmax(0,1fr));
-    gap:18px;
-    align-items:stretch;
+    display:grid !important;
+    grid-template-columns:repeat(12,minmax(0,1fr)) !important;
+    gap:18px !important;
+    align-items:stretch !important;
 }
 
 .business-video{
     position:relative;
-    width:100%;
-    height:620px;
-    max-width:none;
+    width:100% !important;
+    height:620px !important;
+    max-width:none !important;
     overflow:hidden;
     background:#181715;
 }
 
 .business-video video{
-    width:100%;
-    height:100%;
+    width:100% !important;
+    height:100% !important;
     display:block;
-    object-fit:cover;
+    object-fit:cover !important;
     object-position:center;
 }
 
-/* Desktop: 3 on first row, 4 on second row */
+/* Desktop: 3 + 4, both rows fill the width */
 .business-video:nth-child(1),
 .business-video:nth-child(2),
 .business-video:nth-child(3){
-    grid-column:span 4;
+    grid-column:span 4 !important;
 }
 
 .business-video:nth-child(4),
 .business-video:nth-child(5),
 .business-video:nth-child(6),
 .business-video:nth-child(7){
-    grid-column:span 3;
+    grid-column:span 3 !important;
 }
 
-/* ---------- UGC: 8 equal cards ---------- */
+/* ---------- UGC & CREATIVE CONTENT ---------- */
 .ugc-grid{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:16px;
-    align-items:stretch;
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:16px !important;
+    align-items:stretch !important;
+    grid-auto-flow:row !important;
 }
 
 .ugc-media,
 .ugc-text{
     position:relative;
-    width:100%;
-    height:520px;
+    width:100% !important;
+    min-width:0;
+    height:420px !important;
     overflow:hidden;
 }
 
@@ -1541,11 +1543,15 @@ footer{
 
 .ugc-media img,
 .ugc-media video{
-    width:100%;
-    height:100%;
+    width:100% !important;
+    height:100% !important;
     display:block;
-    object-fit:cover;
-    object-position:center;
+    object-fit:cover !important;
+    object-position:center !important;
+}
+
+.ugc-media img,
+.ugc-media video{
     transition:transform .55s ease,filter .45s ease;
 }
 
@@ -1556,7 +1562,7 @@ footer{
 }
 
 .ugc-text{
-    padding:42px 34px;
+    padding:36px 30px !important;
     background:var(--black);
     color:white;
     display:flex;
@@ -1568,119 +1574,140 @@ footer{
 }
 
 .ugc-small{
-    margin-bottom:20px;
+    margin-bottom:18px;
     font-size:10px;
     font-weight:600;
-    letter-spacing:3.5px;
+    letter-spacing:3.2px;
 }
 
 .ugc-text h4{
     margin:0;
     font-family:"Cormorant Garamond",serif;
-    font-size:clamp(44px,3.5vw,68px);
+    font-size:clamp(42px,3.2vw,64px);
     font-weight:400;
     line-height:.82;
 }
 
 .ugc-text h4 span{
     display:block;
-    margin-left:20px;
+    margin-left:18px;
     font-style:italic;
 }
 
 .ugc-description{
     align-self:flex-end;
-    max-width:260px;
-    margin-top:26px;
+    max-width:250px;
+    margin-top:22px;
     direction:rtl;
     text-align:right;
     color:#ded8d1;
-    font-size:15px;
+    font-size:14px;
     font-weight:300;
-    line-height:1.75;
+    line-height:1.7;
 }
 
 .ai-label{
     position:absolute;
-    left:12px;
-    bottom:12px;
+    left:10px;
+    bottom:10px;
     z-index:3;
-    padding:8px 11px;
-    background:rgba(25,24,22,.84);
+    padding:8px 10px;
+    background:rgba(25,24,22,.86);
     color:white;
-    font-size:13px;
+    font-size:12px;
     font-weight:500;
-    backdrop-filter:blur(6px);
+    backdrop-filter:blur(5px);
 }
 
 /* ---------- Tablet ---------- */
 @media (max-width:1100px){
     .business-grid{
-        gap:12px;
+        gap:12px !important;
     }
 
     .business-video:nth-child(1),
     .business-video:nth-child(2){
-        grid-column:span 6;
+        grid-column:span 6 !important;
     }
 
     .business-video:nth-child(3),
     .business-video:nth-child(4),
     .business-video:nth-child(5){
-        grid-column:span 4;
+        grid-column:span 4 !important;
     }
 
     .business-video:nth-child(6),
     .business-video:nth-child(7){
-        grid-column:span 6;
+        grid-column:span 6 !important;
     }
 
     .business-video{
-        height:500px;
+        height:500px !important;
     }
 
     .ugc-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:12px;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:10px !important;
     }
 
     .ugc-media,
     .ugc-text{
-        height:430px;
+        height:380px !important;
+        grid-column:span 1 !important;
+    }
+
+    /* A full row prevents any half-empty line before the LUX pair */
+    .ugc-base-wide{
+        grid-column:1 / -1 !important;
+        height:auto !important;
+        aspect-ratio:16 / 9 !important;
+    }
+
+    /* Serum is intentionally wider */
+    .serum-video{
+        grid-column:1 / -1 !important;
+        height:auto !important;
+        aspect-ratio:16 / 9 !important;
+    }
+
+    /* The two AI videos always remain side by side */
+    .ai-media{
+        grid-column:span 1 !important;
+        height:380px !important;
     }
 }
 
 /* ---------- Mobile ---------- */
 @media (max-width:700px){
     .business-grid{
-        grid-template-columns:repeat(12,minmax(0,1fr));
-        gap:8px;
+        grid-template-columns:repeat(12,minmax(0,1fr)) !important;
+        gap:8px !important;
     }
 
     .business-video:nth-child(1),
     .business-video:nth-child(2){
-        grid-column:span 6;
+        grid-column:span 6 !important;
     }
 
     .business-video:nth-child(3),
     .business-video:nth-child(4),
     .business-video:nth-child(5){
-        grid-column:span 4;
+        grid-column:span 4 !important;
     }
 
     .business-video:nth-child(6),
     .business-video:nth-child(7){
-        grid-column:span 6;
+        grid-column:span 6 !important;
     }
 
     .business-video{
-        height:330px;
+        height:330px !important;
     }
 
     .business-video video{
-        width:100%;
-        height:100%;
-        object-fit:cover;
+        width:100% !important;
+        height:100% !important;
+        object-fit:cover !important;
     }
 
     .video-title{
@@ -1691,17 +1718,37 @@ footer{
     }
 
     .ugc-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:8px;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:10px !important;
+        grid-auto-flow:row !important;
     }
 
     .ugc-media,
     .ugc-text{
-        height:300px;
+        width:100% !important;
+        height:300px !important;
+        grid-column:span 1 !important;
+    }
+
+    .ugc-base-wide{
+        grid-column:1 / -1 !important;
+        height:auto !important;
+        aspect-ratio:16 / 9 !important;
+    }
+
+    .serum-video{
+        grid-column:1 / -1 !important;
+        height:auto !important;
+        aspect-ratio:16 / 9 !important;
+    }
+
+    .ai-media{
+        grid-column:span 1 !important;
+        height:300px !important;
     }
 
     .ugc-text{
-        padding:22px 16px;
+        padding:22px 16px !important;
     }
 
     .ugc-small{
@@ -1731,5 +1778,3 @@ footer{
         font-size:10px;
     }
 }
-
-\n\n/* =====================================================\n   FINAL UGC FIX — AI pair + serum width\n   Updated 2026-09-05\n===================================================== */\n\n/* Desktop keeps the clean 4-column grid. */\n@media (min-width:1101px){\n    .ugc-grid{\n        grid-template-columns:repeat(4,minmax(0,1fr)) !important;\n        gap:16px !important;\n    }\n\n    .ugc-media,\n    .ugc-text{\n        height:520px !important;\n    }\n}\n\n/* Tablet/mobile: serum gets a full row; AI videos stay paired below it. */\n@media (max-width:1100px){\n    .ugc-grid{\n        grid-template-columns:repeat(2,minmax(0,1fr)) !important;\n    }\n\n    .serum-video{\n        grid-column:1 / -1 !important;\n        height:auto !important;\n        aspect-ratio:16 / 9 !important;\n    }\n\n    .ai-media{\n        grid-column:span 1 !important;\n    }\n}\n\n@media (max-width:700px){\n    .ugc-grid{\n        grid-template-columns:repeat(2,minmax(0,1fr)) !important;\n        gap:8px !important;\n    }\n\n    .serum-video{\n        grid-column:1 / -1 !important;\n        height:auto !important;\n        aspect-ratio:16 / 9 !important;\n    }\n\n    .ai-media{\n        grid-column:span 1 !important;\n        height:300px !important;\n    }\n}\n
