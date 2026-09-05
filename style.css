@@ -1777,88 +1777,116 @@ footer{
         padding:6px 8px;
         font-size:10px;
     }
-    /* =========================================
-   MOBILE ONLY — FINAL UGC LAYOUT FIX
-========================================= */
-
-@media (max-width: 700px) {
-
-    .ugc-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px !important;
-        align-items: stretch !important;
-    }
-
-    /* כל הפריטים הרגילים */
-    .ugc-media,
-    .ugc-text {
-        width: 100% !important;
-        min-width: 0 !important;
-        grid-column: span 1 !important;
-    }
-
-    /* הסרום — רחב על כל השורה */
-    .serum-video {
-        grid-column: 1 / -1 !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16 / 9 !important;
-    }
-
-    .serum-video video {
-        width: 100% !important;
-        height: 100% !important;
-        display: block !important;
-        object-fit: cover !important;
-    }
-
-    /* שני סרטוני ה-AI — באותה שורה */
-    .ai-media {
-        grid-column: span 1 !important;
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 4 / 5 !important;
-        align-self: stretch !important;
-    }
-
-    .ai-media video {
-        width: 100% !important;
-        height: 100% !important;
-        display: block !important;
-        object-fit: cover !important;
-    }
-
-    /* הכיתוב על סרטוני AI */
-    .ai-label {
-        position: absolute !important;
-        left: 10px !important;
-        bottom: 10px !important;
-        z-index: 5 !important;
-        font-size: 11px !important;
-    }
-    /* =========================================
-   MOBILE — WIDE BLACK CONTENT CARD
-========================================= */
-
-@media (max-width: 700px) {
-
-    /* הכרטיס השחור מתפרס על כל השורה */
-    .ugc-text {
-        grid-column: 1 / -1 !important;
-        width: 100% !important;
-        aspect-ratio: auto !important;
-    }
-
-    /* לא משנים את שני סרטוני ה-AI */
-    .ai-media {
-        grid-column: span 1 !important;
-    }
-
-    /* הסרום נשאר רחב */
-    .serum-video {
-        grid-column: 1 / -1 !important;
-    }
 }
-}
+
+/* =====================================================
+   FINAL MOBILE UGC ORDER — 2026-09-05
+   Desktop remains unchanged.
+   1) Black CONTENT card is first and full-width.
+   2) Regular media stays two per row.
+   3) Serum spans a full row.
+   4) AI 5404 + 5405 stay side-by-side.
+===================================================== */
+@media (max-width:700px){
+    .ugc-grid{
+        display:grid !important;
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:10px !important;
+        grid-auto-flow:row !important;
+        align-items:stretch !important;
+    }
+
+    /* Make the black editorial card the FIRST item on mobile */
+    .ugc-grid > .ugc-text{
+        order:-10 !important;
+        grid-column:1 / -1 !important;
+        width:100% !important;
+        height:auto !important;
+        min-height:220px !important;
+        aspect-ratio:auto !important;
+        padding:28px 24px !important;
+        display:flex !important;
+        flex-direction:column !important;
+        justify-content:center !important;
+        align-items:center !important;
+        text-align:center !important;
+    }
+
+    .ugc-grid > .ugc-text .ugc-small{
+        margin-bottom:14px !important;
+        font-size:9px !important;
+        letter-spacing:2.2px !important;
+        text-align:center !important;
+    }
+
+    .ugc-grid > .ugc-text h4{
+        margin:0 !important;
+        font-size:44px !important;
+        line-height:.9 !important;
+        text-align:center !important;
+    }
+
+    .ugc-grid > .ugc-text h4 span{
+        margin-left:0 !important;
+    }
+
+    .ugc-grid > .ugc-text .ugc-description{
+        align-self:center !important;
+        max-width:310px !important;
+        margin-top:20px !important;
+        font-size:14px !important;
+        line-height:1.6 !important;
+        text-align:center !important;
+    }
+
+    /* All normal media: two equal cards per row */
+    .ugc-grid > .ugc-media:not(.serum-video):not(.ai-media):not(.ugc-base-wide){
+        order:0 !important;
+        grid-column:span 1 !important;
+        width:100% !important;
+        height:300px !important;
+        min-width:0 !important;
+    }
+
+    /* Existing wide base clip stays full-width */
+    .ugc-grid > .ugc-base-wide{
+        order:0 !important;
+        grid-column:1 / -1 !important;
+        width:100% !important;
+        height:auto !important;
+        aspect-ratio:16 / 9 !important;
+    }
+
+    /* Serum fills the whole row */
+    .ugc-grid > .serum-video{
+        order:5 !important;
+        grid-column:1 / -1 !important;
+        width:100% !important;
+        height:auto !important;
+        aspect-ratio:16 / 9 !important;
+    }
+
+    .ugc-grid > .serum-video video{
+        width:100% !important;
+        height:100% !important;
+        object-fit:cover !important;
+        object-position:center !important;
+    }
+
+    /* Both AI clips appear together after the serum */
+    .ugc-grid > .ai-media{
+        order:6 !important;
+        grid-column:span 1 !important;
+        width:100% !important;
+        height:300px !important;
+        min-width:0 !important;
+    }
+
+    .ugc-grid > .ai-media video{
+        width:100% !important;
+        height:100% !important;
+        display:block !important;
+        object-fit:cover !important;
+        object-position:center !important;
+    }
 }
