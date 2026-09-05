@@ -1900,4 +1900,48 @@ footer{
         min-width: 0 !important;
     }
 }
+/* =========================================
+   FINAL MOBILE FIX
+   שחור לבד + תמונת הסרומים והסרטון יחד
+========================================= */
+
+@media (max-width:700px){
+
+    /* השחור תמיד ראשון ולבד על כל השורה */
+    .ugc-grid > .ugc-text{
+        order:-10 !important;
+        grid-column:1 / -1 !important;
+        width:100% !important;
+        height:auto !important;
+        min-height:220px !important;
+    }
+
+    /* תמונת הסרומים */
+    .ugc-grid > :first-child{
+        order:0 !important;
+        grid-column:span 1 !important;
+        width:100% !important;
+        height:300px !important;
+    }
+
+    /* הסרטון שלה עם הסרומים */
+    .ugc-grid > .ugc-base-wide{
+        order:0 !important;
+        grid-column:span 1 !important;
+        width:100% !important;
+        height:300px !important;
+        aspect-ratio:auto !important;
+    }
+
+    .ugc-grid > .ugc-base-wide video{
+        width:100% !important;
+        height:100% !important;
+        object-fit:cover !important;
+    }
+
+    /* שני סרטוני AI נשארים כמו שהם */
+    .ugc-grid > .ai-media{
+        grid-column:span 1 !important;
+    }
+}
 }
